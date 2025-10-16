@@ -360,7 +360,7 @@ export default function StructuredDataPage() {
                   style={{ animationDelay: '0.3s' }}
                 ></div>
               </div>
-              <span>{'הצ\u2019אטבוט מכין את המתכון'}</span>
+              <span>הבוט מכין את המתכון</span>
             </div>
           )}
         </div>
