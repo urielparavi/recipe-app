@@ -19,7 +19,7 @@ export async function POST(req: Request) {
       // Specify which OpenAI model to use (in this case: gpt-4.1-nano)
       schema: recipeSchema,
       // Provide the schema to ensure the response matches the expected recipe structure
-      prompt: `Generate a recipe for ${dish}`,
+      prompt: `Generate a recipe for ${dish}. Your answer need to be in Hebrew`,
       // Define the prompt sent to the model, dynamically inserting the requested dish
     });
 
