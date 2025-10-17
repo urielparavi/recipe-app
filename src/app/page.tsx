@@ -30,6 +30,7 @@ export default function StructuredDataPage() {
 
     setIsLoading(true);
     setError(null);
+    setObject(null);
 
     try {
       const response = await fetch('/api/recipe', {
@@ -39,9 +40,64 @@ export default function StructuredDataPage() {
       });
 
       if (!response.ok) throw new Error('Failed to fetch recipe');
+      const text = await response.text();
+      const data = JSON.parse(text);
 
-      const data = await response.json();
-      setObject(data);
+      if (data.recipe) {
+        let currentName = '';
+        for (const char of data.recipe.name) {
+          currentName += char;
+          await new Promise((resolve) => setTimeout(resolve, 30));
+          setObject({
+            recipe: {
+              ...data.recipe,
+              name: currentName,
+              ingredients: [],
+              steps: [],
+            },
+          } as RecipeResponse);
+        }
+
+        let currentDesc = '';
+        for (const char of data.recipe.description || '') {
+          currentDesc += char;
+          await new Promise((resolve) => setTimeout(resolve, 15));
+          setObject({
+            recipe: {
+              ...data.recipe,
+              description: currentDesc,
+              ingredients: [],
+              steps: [],
+            },
+          } as RecipeResponse);
+        }
+
+        if (data.recipe.ingredients) {
+          for (let i = 0; i < data.recipe.ingredients.length; i++) {
+            await new Promise((resolve) => setTimeout(resolve, 100));
+            const ingredientsSoFar = data.recipe.ingredients.slice(0, i + 1);
+            setObject({
+              recipe: {
+                ...data.recipe,
+                ingredients: ingredientsSoFar,
+                steps: [],
+              },
+            } as RecipeResponse);
+          }
+        }
+
+        if (data.recipe.steps) {
+          for (let i = 0; i < data.recipe.steps.length; i++) {
+            await new Promise((resolve) => setTimeout(resolve, 120));
+            const stepsSoFar = data.recipe.steps.slice(0, i + 1);
+            setObject({
+              recipe: { ...data.recipe, steps: stepsSoFar },
+            } as RecipeResponse);
+          }
+        }
+        setObject(data);
+      }
+
       setDishName('');
     } catch (err: unknown) {
       if (err instanceof Error) {
@@ -66,7 +122,6 @@ export default function StructuredDataPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-amber-50 dark:from-slate-950 dark:via-slate-900 dark:to-orange-950">
-      {/* Header */}
       <div className="sticky top-0 z-40 backdrop-blur-md bg-white/80 dark:bg-slate-900/80 border-b border-orange-100 dark:border-orange-900/30">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -85,11 +140,9 @@ export default function StructuredDataPage() {
           <Sparkles className="w-5 h-5 text-orange-500 animate-pulse" />
         </div>
       </div>
-      {/* Main Content */}
       <div className="max-w-6xl mx-auto px-4 py-8 pb-40">
         {!object?.recipe ? (
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Left Sidebar */}
             <div className="lg:col-span-1 space-y-6">
               <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-orange-100 dark:border-orange-900/30">
                 <h2 className="font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
@@ -123,7 +176,6 @@ export default function StructuredDataPage() {
                   </div>
                 </div>
               </div>
-
               <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl p-6 shadow-lg text-white">
                 <h3 className="font-bold mb-3">מרכיבים פופולריים</h3>
                 <div className="flex flex-wrap gap-2">
@@ -141,7 +193,6 @@ export default function StructuredDataPage() {
                 </div>
               </div>
             </div>
-            {/* Center Content */}
             <div className="lg:col-span-2">
               <div className="flex flex-col items-center justify-center min-h-96 text-center">
                 <div className="mb-8 relative">
@@ -174,9 +225,7 @@ export default function StructuredDataPage() {
             </div>
           </div>
         ) : (
-          // Recipe Display
           <div className="grid lg:grid-cols-3 gap-8">
-            {/* Left Info Panel */}
             <div className="lg:col-span-1 space-y-4">
               <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border border-orange-100 dark:border-orange-900/30">
                 <h3 className="text-sm uppercase tracking-wider text-orange-600 dark:text-orange-400 font-bold mb-4">
@@ -222,7 +271,6 @@ export default function StructuredDataPage() {
                   </div>
                 )}
               </div>
-
               <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl p-6 shadow-lg text-white">
                 <h4 className="font-bold mb-3 text-sm">💡 טיפ מהשף</h4>
                 <p className="text-sm leading-relaxed">
@@ -231,9 +279,7 @@ export default function StructuredDataPage() {
                 </p>
               </div>
             </div>
-            {/* Center Recipe Content */}
             <div className="lg:col-span-2 space-y-8">
-              {/* Recipe Title */}
               <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg border border-orange-100 dark:border-orange-900/30">
                 <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-2">
                   {object.recipe.name}
@@ -242,7 +288,6 @@ export default function StructuredDataPage() {
                   {object.recipe.description}
                 </p>
               </div>
-              {/* Ingredients */}
               {object?.recipe?.ingredients && (
                 <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg border border-orange-100 dark:border-orange-900/30">
                   <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
@@ -268,7 +313,6 @@ export default function StructuredDataPage() {
                   </div>
                 </div>
               )}
-              {/* Steps */}
               {object?.recipe?.steps && (
                 <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg border border-orange-100 dark:border-orange-900/30">
                   <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-3">
@@ -296,7 +340,6 @@ export default function StructuredDataPage() {
             </div>
           </div>
         )}
-        {/* Error Message */}
         {error && (
           <div className="fixed top-24 left-4 right-4 max-w-md mx-auto bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl p-4 flex items-start gap-3 shadow-lg">
             <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
@@ -311,7 +354,6 @@ export default function StructuredDataPage() {
           </div>
         )}
       </div>
-      {/* Fixed Input Form */}
       <div className="fixed bottom-0 left-0 right-0 backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 border-t border-orange-200 dark:border-orange-900/50 shadow-2xl">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex gap-3">

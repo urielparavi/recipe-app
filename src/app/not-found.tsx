@@ -9,7 +9,6 @@ export const metadata = {
 export default function NotFoundPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-amber-50 dark:from-slate-950 dark:via-slate-900 dark:to-orange-950 flex items-center justify-center px-4 py-8">
-      {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-10 left-10 w-72 h-72 bg-orange-200 dark:bg-orange-900/20 rounded-full blur-3xl opacity-20 animate-pulse"></div>
         <div
@@ -17,11 +16,8 @@ export default function NotFoundPage() {
           style={{ animationDelay: '1s' }}
         ></div>
       </div>
-      {/* Content */}
       <div className="relative z-10 w-full max-w-2xl">
-        {/* Main Card */}
         <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl border border-orange-100 dark:border-orange-900/30 p-8 md:p-12 text-center space-y-8">
-          {/* Icon with animation */}
           <div className="flex justify-center">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-red-600 rounded-full blur-2xl opacity-30 animate-pulse"></div>
@@ -30,7 +26,6 @@ export default function NotFoundPage() {
               </div>
             </div>
           </div>
-          {/* Headline */}
           <div className="space-y-3">
             <div className="inline-block">
               <h1 className="text-7xl md:text-8xl font-black bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
@@ -41,12 +36,10 @@ export default function NotFoundPage() {
               הדף הזה לא קיים!
             </h2>
           </div>
-          {/* Description */}
           <p className="text-slate-600 dark:text-slate-300 text-lg md:text-xl leading-relaxed max-w-md mx-auto">
             נראה שהעמוד שחיפשת לא נמצא בתפריט שלנו. אבל אל תדאג, מכאן תוכל לחזור
             חזרה למתכונים הטעימים שלנו!
           </p>
-          {/* Features - What went wrong */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
             <div className="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 p-4 rounded-xl border border-orange-200 dark:border-orange-900/40">
               <ChefHat className="w-6 h-6 text-orange-600 dark:text-orange-400 mx-auto mb-2" />
@@ -61,7 +54,6 @@ export default function NotFoundPage() {
               </p>
             </div>
           </div>
-          {/* Call to Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
             <Link href="/">
               <button className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white font-semibold rounded-xl hover:from-orange-600 hover:to-red-700 transition-all shadow-lg hover:shadow-xl active:scale-95 flex items-center justify-center gap-2 group cursor-pointer">
@@ -70,14 +62,12 @@ export default function NotFoundPage() {
               </button>
             </Link>
           </div>
-          {/* Fun message */}
           <div className="pt-4 border-t border-slate-200 dark:border-slate-700">
             <p className="text-sm text-slate-500 dark:text-slate-400 italic">
               💡 טיפ: בחר מרכיב אהוב עליך וגלה מתכון חדש!
             </p>
           </div>
         </div>
-        {/* Bottom decoration */}
         <div className="mt-8 text-center space-y-2">
           <div className="flex items-center justify-center gap-2 text-slate-600 dark:text-slate-400">
             <ChefHat
