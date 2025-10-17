@@ -184,7 +184,7 @@ export default function StructuredDataPage() {
                       <button
                         key={i}
                         onClick={() => setDishName(item)}
-                        className="px-3 py-1.5 bg-white/20 hover:bg-white/30 rounded-full text-sm font-medium transition-colors"
+                        className="px-3 py-1.5 bg-white/20 hover:bg-white/30 rounded-full text-sm font-medium transition-colors cursor-pointer"
                       >
                         {item}
                       </button>
