@@ -148,8 +148,8 @@ export default function StructuredDataPage() {
                   מה בשולחן היום?
                 </h2>
                 <p className="text-lg text-slate-600 dark:text-slate-300 max-w-md mb-8">
-                  הכנס מרכיב ישראלי קלאסי או משהו יצירתי, והצ'אטבוט שלנו יביא לך
-                  מתכון מוכן בתוך שניות
+                  הכנס מרכיב ישראלי קלאסי או משהו יצירתי, והבוט יביא לך מתכון
+                  מוכן בתוך שניות
                 </p>
                 <div className="flex gap-4">
                   <div className="text-center">
