@@ -152,7 +152,7 @@ export default function StructuredDataPage() {
                   מה בשולחן היום?
                 </h2>
                 <p className="text-lg text-slate-600 dark:text-slate-300 max-w-md mb-8">
-                  הכנס מרכיב ישראלי קלאסי או משהו יצירתי, והבוט יביא לך מתכון
+                  הכנס מרכיב ישראלי קלאסי או משהו יצירתי, והשף יביא לך מתכון
                   מוכן בתוך שניות
                 </p>
                 <div className="flex gap-4">
@@ -359,7 +359,7 @@ export default function StructuredDataPage() {
                   style={{ animationDelay: '0.3s' }}
                 ></div>
               </div>
-              <span>הבוט מכין את המתכון</span>
+              <span>השף מכין את המתכון</span>
             </div>
           )}
         </div>
