@@ -94,7 +94,7 @@ export default function NotFoundPage() {
             />
           </div>
           <p className="text-xs text-slate-500 dark:text-slate-500">
-            שף מודלה - מתכונים אישיים בשניה אחת
+            שף מודלה - מתכונים אישיים בשנייה אחת
           </p>
         </div>
       </div>
