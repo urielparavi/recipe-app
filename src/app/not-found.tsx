@@ -17,7 +17,6 @@ export default function NotFoundPage() {
           style={{ animationDelay: '1s' }}
         ></div>
       </div>
-
       {/* Content */}
       <div className="relative z-10 w-full max-w-2xl">
         {/* Main Card */}
@@ -31,7 +30,6 @@ export default function NotFoundPage() {
               </div>
             </div>
           </div>
-
           {/* Headline */}
           <div className="space-y-3">
             <div className="inline-block">
@@ -43,13 +41,11 @@ export default function NotFoundPage() {
               הדף הזה לא קיים!
             </h2>
           </div>
-
           {/* Description */}
           <p className="text-slate-600 dark:text-slate-300 text-lg md:text-xl leading-relaxed max-w-md mx-auto">
             נראה שהעמוד שחיפשת לא נמצא בתפריט שלנו. אבל אל תדאג, מכאן תוכל לחזור
             חזרה למתכונים הטעימים שלנו!
           </p>
-
           {/* Features - What went wrong */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
             <div className="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 p-4 rounded-xl border border-orange-200 dark:border-orange-900/40">
@@ -65,7 +61,6 @@ export default function NotFoundPage() {
               </p>
             </div>
           </div>
-
           {/* Call to Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
             <Link href="/">
@@ -75,7 +70,6 @@ export default function NotFoundPage() {
               </button>
             </Link>
           </div>
-
           {/* Fun message */}
           <div className="pt-4 border-t border-slate-200 dark:border-slate-700">
             <p className="text-sm text-slate-500 dark:text-slate-400 italic">
@@ -83,7 +77,6 @@ export default function NotFoundPage() {
             </p>
           </div>
         </div>
-
         {/* Bottom decoration */}
         <div className="mt-8 text-center space-y-2">
           <div className="flex items-center justify-center gap-2 text-slate-600 dark:text-slate-400">
