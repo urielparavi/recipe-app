@@ -85,7 +85,6 @@ export default function StructuredDataPage() {
           <Sparkles className="w-5 h-5 text-orange-500 animate-pulse" />
         </div>
       </div>
-
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-4 py-8 pb-40">
         {!object?.recipe ? (
@@ -142,7 +141,6 @@ export default function StructuredDataPage() {
                 </div>
               </div>
             </div>
-
             {/* Center Content */}
             <div className="lg:col-span-2">
               <div className="flex flex-col items-center justify-center min-h-96 text-center">
@@ -233,7 +231,6 @@ export default function StructuredDataPage() {
                 </p>
               </div>
             </div>
-
             {/* Center Recipe Content */}
             <div className="lg:col-span-2 space-y-8">
               {/* Recipe Title */}
@@ -245,7 +242,6 @@ export default function StructuredDataPage() {
                   {object.recipe.description}
                 </p>
               </div>
-
               {/* Ingredients */}
               {object?.recipe?.ingredients && (
                 <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg border border-orange-100 dark:border-orange-900/30">
@@ -272,7 +268,6 @@ export default function StructuredDataPage() {
                   </div>
                 </div>
               )}
-
               {/* Steps */}
               {object?.recipe?.steps && (
                 <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-lg border border-orange-100 dark:border-orange-900/30">
@@ -301,7 +296,6 @@ export default function StructuredDataPage() {
             </div>
           </div>
         )}
-
         {/* Error Message */}
         {error && (
           <div className="fixed top-24 left-4 right-4 max-w-md mx-auto bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl p-4 flex items-start gap-3 shadow-lg">
@@ -317,7 +311,6 @@ export default function StructuredDataPage() {
           </div>
         )}
       </div>
-
       {/* Fixed Input Form */}
       <div className="fixed bottom-0 left-0 right-0 backdrop-blur-xl bg-white/95 dark:bg-slate-900/95 border-t border-orange-200 dark:border-orange-900/50 shadow-2xl">
         <div className="max-w-6xl mx-auto px-4 py-4">
