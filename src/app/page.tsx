@@ -78,7 +78,7 @@ export default function StructuredDataPage() {
                 שף מודלה
               </h1>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                מתכונים אישיים בשניה אחת
+                מתכונים אישיים בשנייה אחת
               </p>
             </div>
           </div>
